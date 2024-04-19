@@ -1,0 +1,20 @@
+.mx-10 {
+    margin-left: 15rem !important;
+    margin-right: 15rem !important;
+}
+
+.ms-8 {
+    margin-left: 5rem !important;
+}
+
+.ms-18 {
+    margin-left: 18rem !important;
+}
+
+.navbar {
+    height: 45px !important;
+}
+
+.carosello {
+    height: 50vh;
+}
