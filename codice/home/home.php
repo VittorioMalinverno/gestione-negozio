@@ -126,6 +126,54 @@
     </div>
   </div>
 
+  <!-- card dei singoli prodotti -->
+  <div class="mt-5 container text-center">
+    <div class="row align-items-start">
+
+    <!-- prima card -->
+      <div class="col mx-5">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title mb-4">Card title</h5>
+            <img src="../placeholder.png" class="card-img-top" alt="...">
+            <div class="d-flex mt-5 justify-content-between align-items-center">
+              <p class="m-0">Prezzo</p>
+              <a href="./prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- seconda card -->
+      <div class="col mx-5">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title mb-4">Card title</h5>
+            <img src="../placeholder.png" class="card-img-top" alt="...">
+            <div class="d-flex mt-5 justify-content-between align-items-center">
+              <p class="m-0">Prezzo</p>
+              <a href="./prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- terza card -->
+      <div class="col mx-5">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title mb-4">Card title</h5>
+            <img src="../placeholder.png" class="card-img-top" alt="...">
+            <div class="d-flex mt-5 justify-content-between align-items-center">
+              <p class="m-0">Prezzo</p>
+              <a href="./prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

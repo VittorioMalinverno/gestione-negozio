@@ -102,7 +102,7 @@
 
         <!-- immagini di sinistra -->
         <div class="left-column">
-            <img src="../placeholder.png">
+            <img src="../placeholder.png" alt="...">
         </div>
 
         <!-- dati a destra -->
