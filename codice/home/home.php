@@ -138,7 +138,7 @@
             <img src="../placeholder.png" class="card-img-top" alt="...">
             <div class="d-flex mt-5 justify-content-between align-items-center">
               <p class="m-0">Prezzo</p>
-              <a href="./prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
+              <a href="../prodotto/prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
             </div>
           </div>
         </div>
@@ -152,7 +152,7 @@
             <img src="../placeholder.png" class="card-img-top" alt="...">
             <div class="d-flex mt-5 justify-content-between align-items-center">
               <p class="m-0">Prezzo</p>
-              <a href="./prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
+              <a href="../prodotto/prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
             </div>
           </div>
         </div>
@@ -166,7 +166,7 @@
             <img src="../placeholder.png" class="card-img-top" alt="...">
             <div class="d-flex mt-5 justify-content-between align-items-center">
               <p class="m-0">Prezzo</p>
-              <a href="./prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
+              <a href="../prodotto/prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
             </div>
           </div>
         </div>
