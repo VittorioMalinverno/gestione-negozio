@@ -11,7 +11,7 @@
     <title>Prodotto</title>
 
     <!-- il mio file css -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./prodotto.css">
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -96,6 +96,27 @@
             </div>
         </div>
     </nav>
+
+    <!-- prodotto -->
+    <div class="container">
+
+        <!-- immagini di sinistra -->
+        <div class="left-column">
+            <img src="../placeholder.png">
+        </div>
+
+        <!-- dati a destra -->
+        <div class="right-column">
+
+            <!-- descrizione -->
+            <p>categoria</p>
+            <h1>nome</h1>
+            <p>Descrizione</p>
+
+            <!-- prezzo -->
+            <p>€€€ <a href="#" class="cart-btn">Aggiungi al carrello</a> </p>
+        </div>
+    </div>
 
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

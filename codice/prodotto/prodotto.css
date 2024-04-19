@@ -1,0 +1,44 @@
+.mx-10 {
+    margin-left: 15rem !important;
+    margin-right: 15rem !important;
+}
+
+.ms-8 {
+    margin-left: 5rem !important;
+}
+
+.ms-18 {
+    margin-left: 18rem !important;
+}
+
+.navbar {
+    height: 45px !important;
+}
+
+.carosello {
+    height: 50vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+}
+
+.left-column {
+    width: 65%;
+    position: relative;
+}
+
+.left-column img {
+    width: 95%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.right-column {
+    width: 35%;
+    margin-top: 40px;
+}
