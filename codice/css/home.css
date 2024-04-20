@@ -3,10 +3,6 @@
     margin-right: 15rem !important;
 }
 
-.ms-8 {
-    margin-left: 5rem !important;
-}
-
 .ms-20 {
     margin-left: 20rem !important;
 }
@@ -16,6 +12,6 @@
 }
 
 .carosello {
-    height: 52vh;
+    height: 52vh !important;
 }
 

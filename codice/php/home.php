@@ -11,13 +11,13 @@
   <title>Home</title>
 
   <!-- il mio file css -->
-  <link rel="stylesheet" href="./home.css">
-  <!-- bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/home.css">
+  <!-- css di bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
+
   <!-- navbar principale -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
@@ -32,7 +32,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-          <!-- casella di ricerca -->
+          <!-- barra di ricerca -->
           <li class="nav-item">
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -41,7 +41,7 @@
           </li>
 
           <!-- selezione di un menù a tendina -->
-          <div class="ms-18">
+          <div class="ms-20">
             <li class="nav-item dropdown">
 
               <!-- interazione menù a tendina -->
@@ -126,58 +126,40 @@
     </div>
   </div>
 
-  <!-- card dei singoli prodotti -->
+  <!-- card dei prodotti -->
   <div class="mt-5 container text-center">
     <div class="row align-items-start">
+      <!-- js per recuperare i prodotti -->
+      <script src="../javascript/viewArticoli.js" type="module">
+        import {
+          recuperaProdotti
+        } from "../javascript/viewArticoli.js";
+      </script>
+      <!-- ciclo per la creazione delle card -->
+      <?php
 
-    <!-- prima card -->
-      <div class="col mx-5">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title mb-4">Card title</h5>
-            <img src="../placeholder.png" class="card-img-top" alt="...">
-            <div class="d-flex mt-5 justify-content-between align-items-center">
-              <p class="m-0">Prezzo</p>
-              <a href="../prodotto/prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
+      for ($i = 0; $i < 3; $i++) {
+      ?>
+        <!-- prima card -->
+        <div class="col mx-5 my-5">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title mb-4">Card title</h5>
+              <img src="../placeholder.png" class="card-img-top" alt="...">
+              <div class="d-flex mt-5 justify-content-between align-items-center">
+                <p class="m-0">Prezzo</p>
+                <a href="../prodotto/prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- seconda card -->
-      <div class="col mx-5">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title mb-4">Card title</h5>
-            <img src="../placeholder.png" class="card-img-top" alt="...">
-            <div class="d-flex mt-5 justify-content-between align-items-center">
-              <p class="m-0">Prezzo</p>
-              <a href="../prodotto/prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-       <!-- terza card -->
-      <div class="col mx-5">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title mb-4">Card title</h5>
-            <img src="../placeholder.png" class="card-img-top" alt="...">
-            <div class="d-flex mt-5 justify-content-between align-items-center">
-              <p class="m-0">Prezzo</p>
-              <a href="../prodotto/prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php
+      }
+      ?>
     </div>
   </div>
-
-  <!-- bootstrap -->
+  <!-- js di bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 
 </html>

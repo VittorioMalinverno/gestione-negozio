@@ -3,10 +3,6 @@
     margin-right: 15rem !important;
 }
 
-.ms-8 {
-    margin-left: 5rem !important;
-}
-
 .ms-20 {
     margin-left: 20rem !important;
 }
@@ -15,11 +11,13 @@
     height: 45px !important;
 }
 
-.carosello {
-    height: 50vh;
+.container1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
 }
 
-.container {
+.container2 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 15px;

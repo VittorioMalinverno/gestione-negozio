@@ -11,9 +11,8 @@
     <title>Prodotto</title>
 
     <!-- il mio file css -->
-    <link rel="stylesheet" href="./prodotto.css">
+    <link rel="stylesheet" href="../css/prodotto.css">
     <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
@@ -23,7 +22,7 @@
         <div class="container-fluid">
 
             <!-- tasto con titolo per tornare indietro -->
-            <a class="navbar-brand" href="#">E-commerce</a>
+            <a class="navbar-brand" href="../home/home.php">E-commerce</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <!-- casella di ricerca -->
+                    <!-- barra di ricerca -->
                     <li class="nav-item">
                         <form class="d-flex" role="search">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -41,7 +40,7 @@
                     </li>
 
                     <!-- selezione di un menù a tendina -->
-                    <div class="ms-18">
+                    <div class="ms-20">
                         <li class="nav-item dropdown">
 
                             <!-- interazione menù a tendina -->
@@ -97,11 +96,18 @@
         </div>
     </nav>
 
-    <!-- prodotto -->
-    <div class="container">
+    <!-- nome prodotto -->
+    <div class="container1">
+        <h1>Acquista nome prodotto</h1>
+        <h5>Prezzo €</h5>
+    </div>
+
+    <!-- immagine e descrizione -->
+    <div class="container2">
 
         <!-- immagini di sinistra -->
         <div class="left-column">
+
             <img src="../placeholder.png" alt="...">
         </div>
 
@@ -110,18 +116,19 @@
 
             <!-- descrizione -->
             <p>categoria</p>
-            <h1>nome</h1>
             <p>Descrizione</p>
+            <p>stock rimanente</p>
 
-            <!-- prezzo -->
-            <p>€€€ <a href="#" class="cart-btn">Aggiungi al carrello</a> </p>
+            <!-- bottone per agiungere al carrello -->
+            <div class="d-grid gap-2 mt-5">
+
+                <a href="#" class="btn btn-primary rounded-pill">Aggiungi al carrello</a>
+            </div>
         </div>
     </div>
 
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 
 </html>
