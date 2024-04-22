@@ -98,8 +98,8 @@
 
     <!-- nome prodotto -->
     <div class="container1">
-        <h1>Acquista nome prodotto</h1>
-        <h5>Prezzo €</h5>
+        <h1>Acquista <span id="nomeProdotto"></span></h1>
+        <h5>Prezzo <span id="prezzo"></span>€</h5>
     </div>
 
     <!-- immagine e descrizione -->
@@ -115,9 +115,9 @@
         <div class="right-column">
 
             <!-- descrizione -->
-            <p>categoria</p>
-            <p>Descrizione</p>
-            <p>stock rimanente</p>
+            <p>categoria <span id="categoria"></span></p>
+            <p>Descrizione <span id="descrizione"></span></p>
+            <p>stock rimanente <span id="stockRimanente"></span></p>
 
             <!-- bottone per agiungere al carrello -->
             <div class="d-grid gap-2 mt-5">
@@ -126,7 +126,7 @@
             </div>
         </div>
     </div>
-
+    <script src="../javascript/prodotto.js" type="module"></script>
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

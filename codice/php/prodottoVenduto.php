@@ -5,9 +5,9 @@
  */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
-        $sql = "SELECT articolo.*, COUNT(riguardare.numero) FROM articolo INNER JOIN riguardare "
-            . " ON articolo.id = riguardare.idArticolo INNER JOIN ordine ON riguardare.idOrdine = ordine.id GROUP BY articolo.id";
+        $sql = "SELECT articolo.*, SUM(riguardare.numero) AS venduto  FROM articolo INNER JOIN riguardare ON articolo.id = riguardare.idArticolo INNER JOIN ordine ON riguardare.idOrdine = ordine.id GROUP BY articolo.id";
         $result = [];
+        require("./connection.php");
         $res = $conn->query($sql);
         while ($row = $res->fetch_assoc()) {
             $result[] = $row;

@@ -128,36 +128,11 @@
 
   <!-- card dei prodotti -->
   <div class="mt-5 container text-center">
-    <div class="row align-items-start">
-      <!-- js per recuperare i prodotti -->
-      <script src="../javascript/viewArticoli.js" type="module">
-        import {
-          recuperaProdotti
-        } from "../javascript/viewArticoli.js";
-      </script>
-      <!-- ciclo per la creazione delle card -->
-      <?php
-
-      for ($i = 0; $i < 3; $i++) {
-      ?>
-        <!-- prima card -->
-        <div class="col mx-5 my-5">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title mb-4">Card title</h5>
-              <img src="../placeholder.png" class="card-img-top" alt="...">
-              <div class="d-flex mt-5 justify-content-between align-items-center">
-                <p class="m-0">Prezzo</p>
-                <a href="../prodotto/prodotto.php" class="btn btn-primary rounded-pill">Acquista</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      <?php
-      }
-      ?>
+    <div class="row align-items-start" id="articoli">
+      
     </div>
   </div>
+  <script src="../javascript/home.js" type="module"></script>
   <!-- js di bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

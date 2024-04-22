@@ -8,10 +8,27 @@ export const recuperaProdotti = () => {
             },
         })
             .then((element) => {
-                element.json();
+                return element.json();
             }).then((response) => {
                 resolve(response);
             })
             .catch((error) => reject(error));
     });
 };
+
+export const recuperaQuantitaVenduta = ()=>{
+    return new Promise((resolve, reject) => {
+        fetch("../php/prodottoVenduto.php", {
+            method: "Post",
+            headers: {
+                "content-type": "application/json",
+            },
+        })
+            .then((element) => {
+                return element.json();
+            }).then((response) => {
+                resolve(response);
+            })
+            .catch((error) => reject(error));
+    });
+}
