@@ -1,7 +1,7 @@
 //fetch per recuperare tutti i prodotti presenti nel db
 export const recuperaProdotti = () => {
     return new Promise((resolve, reject) => {
-        fetch("../php/servizi/viewArticoli.php", {
+        fetch("../servizi/viewArticoli.php", {
             method: "Post",
             headers: {
                 "content-type": "application/json",
@@ -18,7 +18,7 @@ export const recuperaProdotti = () => {
 
 export const recuperaQuantitaVenduta = ()=>{
     return new Promise((resolve, reject) => {
-        fetch("../php/servizi/prodottoVenduto.php", {
+        fetch("../servizi/prodottoVenduto.php", {
             method: "Post",
             headers: {
                 "content-type": "application/json",
