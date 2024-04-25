@@ -11,7 +11,7 @@
   <title>Home</title>
 
   <!-- il mio file css -->
-  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../../css/home.css">
   <!-- css di bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -97,20 +97,20 @@
     </div>
   </nav>
 
-  <!-- pagina iniziale -->
+  <!-- carosello con prodotti più venduti -->
   <div class="border carosello mx-5 mt-3">
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
 
       <!-- vetrina iniziale -->
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../placeholder.png" class="d-block w-100" height="400" alt="...">
+          <img src="../../placeholder.png" class="d-block w-100" height="400" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="../placeholder.png" class="d-block w-100" height="400" alt="...">
+          <img src="../../placeholder.png" class="d-block w-100" height="400" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="../placeholder.png" class="d-block w-100" height="400" alt="...">
+          <img src="../../placeholder.png" class="d-block w-100" height="400" alt="...">
         </div>
       </div>
 
@@ -129,10 +129,10 @@
   <!-- card dei prodotti -->
   <div class="mt-5 container text-center">
     <div class="row align-items-start" id="articoli">
-      
+    
     </div>
   </div>
-  <script src="../javascript/home.js" type="module"></script>
+  <script src="../../javascript/home.js" type="module"></script>
   <!-- js di bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
