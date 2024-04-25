@@ -104,13 +104,13 @@
       <!-- vetrina iniziale -->
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../../placeholder.png" class="d-block w-100" height="400" alt="...">
+          <img src="./placeholder.png" class="d-block w-100" height="400" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="../../placeholder.png" class="d-block w-100" height="400" alt="...">
+          <img src="./placeholder.png" class="d-block w-100" height="400" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="../../placeholder.png" class="d-block w-100" height="400" alt="...">
+          <img src="./placeholder.png" class="d-block w-100" height="400" alt="...">
         </div>
       </div>
 
