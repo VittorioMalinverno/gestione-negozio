@@ -1,9 +1,11 @@
-.mx-10 {
-    margin-left: 15rem !important;
-    margin-right: 15rem !important;
+.mt-6 {
+    margin-top: 6rem !important;
 }
 
-.ms-20 {
-    margin-left: 20rem !important;
+.ms-6 {
+    margin-left: 6rem !important;
 }
 
+.max-h {
+    max-height: 430px !important;
+}

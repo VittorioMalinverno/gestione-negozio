@@ -48,22 +48,81 @@
         </div>
     </nav>
 
-    <div class="container text-center mt-5">
+    <div class="container text-center mt-6">
         <div class="row align-items-start">
-            <div class="col-4 border">
+            <div class="col-4 border-end">
                 <h3>Impostazioni</h3>
                 <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
-                    <a class="p-1 rounded my-5" href="#simple-list-item-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                    <a class="fs-4 p-1 rounded link-dark link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover my-5" href="#dettagliAccount">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
                         </svg>
                         Dettagli account</a>
-                    <a class="p-1 rounded my-5" href="#simple-list-item-2">Indirizzo di consegna</a>
-                    <a class="p-1 rounded my-5" href="#simple-list-item-3">Elimina account</a>
+                    <a class="fs-4 p-1 rounded link-dark link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover my-5" href="#indirizzoDiConsegna">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+                        </svg>
+                        Indirizzo di consegna</a>
+                    <a class="fs-4 p-1 rounded link-danger link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover my-5" href="#eliminaAccount">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                        </svg>
+                        Elimina account</a>
                 </div>
             </div>
-            <div class="col-8 mt-5 border">
-                One of three columns
+            <div class="col-7 mt-5 ms-6 text-start overflow-auto max-h">
+                <div class="mt-3">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label" id="dettagliAccount">Nome</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Nome utente attuale">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cognome" class="form-label">Cognome</label>
+                        <input type="text" class="form-control" id="cognome" placeholder="Cognome attuale">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" placeholder="E-mail attuale">
+                    </div>
+                    <h6 class="text-danger">Vuoi modificare la password?</h6>
+                    <div class="mb-3 p-2 border border-danger rounded">
+                        <label for="passwordAttuale" class="form-label mt-2">Inserisci la password attuale</label>
+                        <input type="text" class="form-control mb-2" id="passwordAttuale" placeholder="Password attuale">
+                        <label for="passwordNuova" class="form-label mt-2">Inserisci la nuova password</label>
+                        <input type="text" class="form-control mb-2" id="passwordNuova" placeholder="Nuova password">
+                        <label for="passwordNuova2" class="form-label mt-2">Reinserisci la nuova password</label>
+                        <input type="text" class="form-control mb-2" id="passwordNuova2" placeholder="Nuova password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="città" class="form-label" id="indirizzoDiConsegna">Città</label>
+                        <input type="email" class="form-control" id="città" placeholder="Città attuale">
+                    </div>
+                    <div class="mb-3">
+                        <label for="via" class="form-label">Via</label>
+                        <input type="email" class="form-control" id="via" placeholder="Via attuale">
+                    </div>
+                    <div class="mb-3">
+                        <label for="civico" class="form-label">Civico</label>
+                        <input type="email" class="form-control" id="civico" placeholder="Civico attuale">
+                    </div>
+                    <h6 class="text-danger">Vuoi eliminare l'account?</h6>
+                    <div class="mb-3 p-2 border border-danger rounded">
+                        <label for="eliminaAccount" class="form-label mt-2">Scrivi "ELIMINA"</label>
+                        <input type="text" class="form-control mb-2" id="eliminaAccount" placeholder="ELIMINA">
+                        <div class="d-grid justify-content-end mt-2">
+                            <button type="button" class="btn btn-danger">Elimina account</button>
+                        </div>
+                    </div>
+                    <h6 class="text-success">Vuoi salvare le modifiche?</h6>
+                    <div class="mb-3 p-2 border border-success rounded">
+                        <label for="confermaModifiche" class="form-label mt-2">Scrivi "CONFERMA"</label>
+                        <input type="text" class="form-control mb-2" id="confermaModifiche" placeholder="CONFERMA">
+                        <div class="d-grid justify-content-end mt-2">
+                            <button type="button" class="btn btn-success">Salva modifiche</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
