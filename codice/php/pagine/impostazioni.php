@@ -71,7 +71,7 @@
                         Elimina account</a>
                 </div>
             </div>
-            <div class="col-7 mt-5 ms-6 text-start overflow-auto max-h">
+            <div class="col-7 mt-5 ms-6 text-start overflow-y-scroll max-h">
                 <div class="mt-3">
                     <div class="mb-3">
                         <label for="nome" class="form-label" id="dettagliAccount">Nome</label>
