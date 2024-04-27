@@ -3,7 +3,7 @@
 /**
  * Modulo per il login.
  * Per ogni tentativo viene fatto prima il controllo che le credenziali siano del superAdmin
- * altrimenti viene fatto il controllo nel db
+ * altrimenti viene fatto il controllo nel db, il risultato sarà il path a cui sarà reindirizzato
  */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {

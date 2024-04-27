@@ -42,23 +42,23 @@
 
           <!-- selezione di un menù a tendina -->
           <div class="ms-20">
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" >
 
               <!-- interazione menù a tendina -->
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" id="viewCategorie" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-list" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
                 </svg> Seleziona la categoria
               </a>
 
               <!-- opzioni menù a tendina -->
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
+              <ul class="dropdown-menu" id="categorie">
+                <!--<li><a class="dropdown-item" href="#">Action</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>-->
               </ul>
             </li>
           </div>
