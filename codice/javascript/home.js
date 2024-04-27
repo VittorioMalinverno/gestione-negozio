@@ -16,7 +16,7 @@ viewCategorie.onclick = async() =>{
       cat.push(element.tipologia.toLowerCase());
     }
   })
-  let html = "";
+  let html = templateCategoria.replaceAll("%categoria", "Rimuovi filtro");
   cat.forEach(element =>{
     html += templateCategoria.replaceAll("%categoria", element);
   })
@@ -26,8 +26,12 @@ viewCategorie.onclick = async() =>{
       const tipo = element.id;
       let rsp = await recuperaProdotti();
       rsp = rsp.result;
-      rsp = rsp.filter(element => element.tipologia.toLowerCase() == tipo);
-      view(rsp);
+      if(tipo == "Rimuovi filtro"){
+        view(rsp);
+      }else{
+        rsp = rsp.filter(element => element.tipologia.toLowerCase() == tipo);
+        view(rsp);
+      }
     }
   })
 }
