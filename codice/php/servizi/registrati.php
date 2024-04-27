@@ -9,13 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $requestBody = file_get_contents('php://input');
         $request_data = json_decode($requestBody, true);
-        $body_data = $request_data['body'];
-        $nome = $body_data['nome'] ?? null;
-        $cognome = $body_data['cognome'] ?? null;
-        $nomeUtente = $body_data['email'] ?? null;
-        $passwordUser = $body_data['password'] ?? null;
-        $tipologia = $body_data['tipologia'] ?? null;
-        $indirizzo = $body_data['indirizzo'] ?? null;
+        $nome = $request_data['nome'] ?? null;
+        $cognome = $request_data['cognome'] ?? null;
+        $nomeUtente = $request_data['email'] ?? null;
+        $passwordUser = $request_data['password'] ?? null;
+        $tipologia = $request_data['tipologia'] ?? "base";
+        $indirizzo = $request_data['indirizzo'] ?? null;
         if (isset($nome) && isset($cognome) && isset($nomeUtente) && isset($passwordUser) && isset($tipologia) && isset($indirizzo)) {
             require("./connection.php");
             //verifico che non ci sia già un utente con le stesse credenziali

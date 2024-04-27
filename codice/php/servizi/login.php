@@ -9,24 +9,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $requestBody = file_get_contents('php://input');
         $request_data = json_decode($requestBody, true);
-        $body_data = $request_data['body'];
-        $nomeUtente = $body_data['email'] ?? null;
-        $passwordUser = $body_data['password'] ?? null;
+        $nomeUtente = $request_data['email'] ?? null;
+        $passwordUser = $request_data['password'] ?? null;
         if (isset($nomeUtente) && isset($passwordUser)) {
-            require("./leggiFile.php");
-            $conf = leggiFile("../../conf.json");
+            require("./connection.php");
             if ($nomeUtente == $conf['userAdmin'] && $passwordUser == $conf['passwordAdmin']) {
+                session_start();
+                if(!isset($_SESSION['utente'])){
+                    $_SESSION['utente'] = "superAdmin";
+                }
                 echo  json_encode(["result" => "Super Admin"]);
                 exit();
             }
-            require("./connection.php");
-            $query = "SELECT password FROM utente WHERE email = '" . $nomeUtente . "'";
+            $query = "SELECT * FROM utente WHERE email = '" . $nomeUtente . "'";
             $result = $conn->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 if (password_verify($passwordUser, $row['password'])) {
-                    echo  json_encode(["result" => true]);
+                    session_start();
+                    if(!isset($_SESSION['utente'])){
+                        $_SESSION['utente'] = $row;
+                    }
                     require("./closeConnection.php");
+                    echo  json_encode(["result" => true]);
                     exit();
                 } else {
                     echo  json_encode(["result" => false]);

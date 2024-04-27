@@ -34,8 +34,28 @@ export const recuperaQuantitaVenduta = ()=>{
 }
 
 export const login = (dizionario) =>{
+    console.log(dizionario);
     return new Promise((resolve, reject) => {
         fetch("../servizi/login.php", {
+            method: "Post",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(dizionario)
+        })
+            .then((element) => {
+                return element.json();
+            }).then((response) => {
+                resolve(response);
+            })
+            .catch((error) => reject(error));
+    });
+}
+
+export const registrati = (dizionario) =>{
+    console.log(dizionario);
+    return new Promise((resolve, reject) => {
+        fetch("../servizi/registrati.php", {
             method: "Post",
             headers: {
                 "content-type": "application/json",

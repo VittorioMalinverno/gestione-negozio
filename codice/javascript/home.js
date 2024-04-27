@@ -36,13 +36,11 @@ viewCategorie.onclick = async() =>{
   })
 }
 search.onclick = async () => {
-  if (prodottoSearch.value != "") {
     let rsp = await recuperaProdotti();
     rsp = rsp.result;
     rsp = rsp.filter(element => element.nome.toLowerCase().includes(prodottoSearch.value.toLowerCase()));
     prodottoSearch.value = "";
     view(rsp);
-  }
 }
 const cardTemplate = `
 <div class="col mx-5 my-5">

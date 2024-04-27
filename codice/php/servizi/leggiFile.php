@@ -3,8 +3,7 @@
 /**
  * Funzione per leggere dal file json di configurazione
  */
-function leggiFile($path)
-{
+function leggiFile($path){
     $file = fopen($path, 'r');
     $contentFile = fread($file, filesize($path));
     fclose($file);
