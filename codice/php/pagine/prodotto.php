@@ -1,3 +1,35 @@
+<?php
+    if(!isset($_GET["idProdotto"]) || empty($_GET["idProdotto"])){
+        header("location: ./home.php");
+    }else{
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $quantita = intval($_POST['quantita']);
+            $prodotto = $_POST["add"];
+            if($quantita >= 1 && isset($prodotto) && !empty($prodotto)){
+                session_start();
+                if(!isset($_SESSION['utente']['carrello'])){
+                    $_SESSION['utente']['carrello'] = [];
+                }
+                $presente = -1;
+                for($i=0;$i<count($_SESSION['utente']['carrello']);$i++){
+                    if($_SESSION['utente']['carrello'][$i]['prodotto'] == $prodotto){
+                        $presente = $i;
+                    }
+                }
+                if($presente == -1){
+                    $_SESSION['utente']['carrello'][] = [
+                        "prodotto" => $prodotto,
+                        "quantita" => intval($quantita)
+                    ];
+                }else{
+                    $_SESSION['utente']['carrello'][$presente]['quantita'] = $_SESSION['utente']['carrello'][$presente]['quantita'] + intval($quantita);
+                }
+                
+                header("location: ./home.php");
+            }
+        }
+    }
+?>
 <!DOCTYPE html>
 
 <html>
@@ -17,6 +49,7 @@
 </head>
 
 <body>
+    
     <!-- navbar principale -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
@@ -65,8 +98,16 @@
 
                 <!-- tasto per accedere e carrello -->
                 <div class="d-flex">
-                    <a href="" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5">Ciao, accedi</a>
-                    <a href="" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">
+                    <a href="" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5"><a href="./login.php" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5"><?php
+                    session_start();
+            if(isset($_SESSION['utente'])){
+              echo "Ciao, ".$_SESSION['utente']['nome'];
+            }else{
+              echo "Ciao, accedi";
+            }
+          ?>
+          </a></a>
+                    <a href="./carrello.php" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart" viewBox="0 0 16 16">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
                         </svg> Carrello
@@ -95,34 +136,32 @@
             </div>
         </div>
     </nav>
-
+    <input type="button" value="indietro" onclick="window.location.href='./home.php'"/>
     <!-- nome prodotto -->
     <div class="container1">
         <h1>Acquista <span id="nomeProdotto"></span></h1>
         <h5>Prezzo <span id="prezzo"></span>€</h5>
     </div>
-
+    <h3>Non si deve vedere se l'id prodotto non è corretto</h3>
     <!-- immagine e descrizione -->
     <div class="container2">
-
         <!-- immagini di sinistra -->
         <div class="left-column">
-
             <img src="./placeholder.png" alt="...">
         </div>
-
         <!-- dati a destra -->
         <div class="right-column">
-
             <!-- descrizione -->
             <p>categoria <span id="categoria"></span></p>
             <p>Descrizione <span id="descrizione"></span></p>
             <p>stock rimanente <span id="stockRimanente"></span></p>
-
             <!-- bottone per agiungere al carrello -->
             <div class="d-grid gap-2 mt-5">
-
-                <a href="#" class="btn btn-primary rounded-pill">Aggiungi al carrello</a>
+                <form method="post" >
+                    <input type="number" name="quantita" min="1" value="1"/>
+                    <input type="hidden" name="add" id="add"/>
+                    <input type="submit"  class="btn btn-primary rounded-pill" value="Aggiungi al carrello"/>
+                </form>
             </div>
         </div>
     </div>
