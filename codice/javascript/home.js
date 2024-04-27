@@ -1,5 +1,17 @@
 import { recuperaProdotti } from "./viewArticoli.js";
 const articoli = document.getElementById("articoli");
+const search = document.getElementById("cerca");
+const prodottoSearch = document.getElementById("prodottoSearch");
+
+search.onclick = async () => {
+  if (prodottoSearch.value != "") {
+    let rsp = await recuperaProdotti();
+    rsp = rsp.result;
+    rsp = rsp.filter(element => element.nome.toLowerCase().includes(prodottoSearch.value.toLowerCase()));
+    prodottoSearch.value = "";
+    view(rsp);
+  }
+}
 const cardTemplate = `
 <div class="col mx-5 my-5">
           <div class="card" style="width: 18rem;">
@@ -14,21 +26,30 @@ const cardTemplate = `
           </div>
         </div>
 `;
-const view = async() =>{
-    let html = "";
-    const rsp = await recuperaProdotti();
-    rsp.result.forEach(element=>{
-        html += cardTemplate
+const view = async (rsp) => {
+  let html = "";
+  if (rsp) {
+    rsp.forEach(element => {
+      html += cardTemplate
         .replace("%TITOLO", element.nome)
         .replace("%PREZZO", element.prezzo)
         .replace("%ID", element.id);
     })
-    articoli.innerHTML = html;
-    document.querySelectorAll(".acquista").forEach(element =>{
-        element.onclick = () =>{
-            window.location.href="./prodotto.php?idProdotto="+element.id;
-        }
+  } else {
+    const rsp = await recuperaProdotti();
+    rsp.result.forEach(element => {
+      html += cardTemplate
+        .replace("%TITOLO", element.nome)
+        .replace("%PREZZO", element.prezzo)
+        .replace("%ID", element.id);
     })
+  }
+  articoli.innerHTML = html;
+  document.querySelectorAll(".acquista").forEach(element => {
+    element.onclick = () => {
+      window.location.href = "./prodotto.php?idProdotto=" + element.id;
+    }
+  })
 }
 
 
