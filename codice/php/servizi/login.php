@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo  json_encode(["result" => "Super Admin"]);
                 exit();
             }
-            $query = "SELECT * FROM utente WHERE email = '" . $nomeUtente . "'";
+            $query = "SELECT * FROM utente WHERE nome = '" . $nomeUtente . "'";
             $result = $conn->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
