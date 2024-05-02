@@ -9,13 +9,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $requestBody = file_get_contents('php://input');
         $request_data = json_decode($requestBody, true);
         $body_data = $request_data['body'];
-        $email = $body_data['email'] ?? null;;
-        $nome = $body_data['nome'] ?? null;;
-        $cognome = $body_data['cognome'] ?? null;;
-        $password = $body_data['password'] ?? null;;
-        $tipologia = $body_data['tipologia'] ?? null;;
-        $indirizzo = $body_data['indirizzo'] ?? null;;
-        $nuovaMail = $body_data['nuovaMail'] ?? null;;
+        $email = $body_data['email'] ?? null;
+        $nome = $body_data['nome'] ?? null;
+        $cognome = $body_data['cognome'] ?? null;
+        $password = $body_data['password'] ?? null;
+        $tipologia = $body_data['tipologia'] ?? null;
+        $indirizzo = $body_data['indirizzo'] ?? null;
+        $nuovaMail = $body_data['nuovaMail'] ?? null;
         if (isset($email) && !empty($email)) {
             $ricercaUtente = "SELECT * FROM utente WHERE email = '$email'";
             require("./connection.php");

@@ -1,12 +1,7 @@
 <?php
 session_start();
 if (isset($_GET['response'])) {
-    if ($_GET['response'] === "true") {
-        $_SESSION['loggato'] = true;
-        header("location: ./home.php");
-    } else {
-        $_SESSION['error'] = $_GET['response'];
-    }
+    $_SESSION['error'] = $_GET['response'];
 }
 ?>
 <!DOCTYPE html>
@@ -23,7 +18,7 @@ if (isset($_GET['response'])) {
 
     <!-- css di bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    
     <!-- il mio file css -->
     <link rel="stylesheet" href="../../css/login.css">
 
@@ -73,30 +68,41 @@ if (isset($_GET['response'])) {
                         </div>
                     </div>
                     <div class="mb-3">
-
                         <!-- form di inserimento -->
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="cognome" class="form-label">Cognome</label>
+                        <input type="text" class="form-control" id="cognome" name="cognome" />
+                    </div>
+                    <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="nomeUtente" />
+                        <input type="email" class="form-control" id="email" name="email" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="indirizzo" class="form-label">Indirizzo</label>
+                        <input type="text" class="form-control" id="indirizzo" name="indirizzo" />
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" />
                     </div>
-                    <div id="divLogin" class="text-center">
+                    <div id="divRegistrazione" class="text-center">
                         <!-- pulsante log in -->
-                        <button type="submit" id="login" class="btn btn-primary">
-                            Log in
+                        <button type="button" id="registrati" class="btn btn-primary">
+                            Sign up
                         </button>
                         <div class="form-text mt-2">
-                            Non sei ancora registrato?
-                            <a href="./registrazione.php">Sign up</a>
+                            Sei già registrato?
+                            <a href="./login.php">Log in</a>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    <script src="../../javascript/login.js" type="module"></script>
+    <script src="../../javascript/registrazione.js" type="module"></script>
     <!-- js di bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
