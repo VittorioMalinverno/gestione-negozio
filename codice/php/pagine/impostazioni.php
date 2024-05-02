@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['utente'])){
+if (!isset($_SESSION['utente'])) {
     header("location: ./home.php");
 }
 ?>
@@ -29,7 +29,7 @@ if(!isset($_SESSION['utente'])){
         <div class="container-fluid">
 
             <!-- tasto con titolo per tornare indietro -->
-            <a class="navbar-brand" href="#">E-commerce</a>
+            <a class="navbar-brand" href="./home.php">E-commerce</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,18 +38,17 @@ if(!isset($_SESSION['utente'])){
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-
                 </ul>
 
                 <!-- tasto per accedere e carrello -->
                 <div class="d-flex">
                     <a href="" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5">
                         <?php
-                        if(isset($_SESSION['utente'])){
-                            echo "Ciao, ".$_SESSION['utente']['nome'];
-                          }else{
+                        if (isset($_SESSION['utente'])) {
+                            echo "Ciao, " . $_SESSION['utente']['nome'];
+                        } else {
                             echo "Ciao, accedi";
-                          }
+                        }
                         ?>
                     </a>
                     <a href="./carrello.php" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">
@@ -61,17 +60,11 @@ if(!isset($_SESSION['utente'])){
             </div>
         </div>
     </nav>
-    <?php
-    session_start();
-    if(isset($_SESSION['utente'])){
-    ?>
-        <input type="button" value="Indietro" onclick="window.location.href='./home.php'"/>
-    <?php
-    }
-    ?>
+
     <div class="container text-center mt-6">
         <div class="row align-items-start">
-            <div class="col-4 border-end">
+
+            <div class="col-3 border-end">
                 <h3>Impostazioni</h3>
                 <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
                     <a class="fs-4 p-1 rounded link-dark link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover my-5" href="#dettagliAccount">
@@ -92,19 +85,20 @@ if(!isset($_SESSION['utente'])){
                         Elimina account</a>
                 </div>
             </div>
-            <div class="col-7 mt-5 ms-6 text-start overflow-y-scroll max-h">
+
+            <div class="col-7 mt-4 ms-6 text-start overflow-y-scroll max-h">
                 <div class="mt-3">
                     <div class="mb-3">
                         <label for="nome" class="form-label" id="dettagliAccount">Nome</label>
-                        <input type="text" class="form-control" id="nome" placeholder="<?php echo $_SESSION['utente']['nome']?>">
+                        <input type="text" class="form-control" id="nome" placeholder="<?php echo $_SESSION['utente']['nome'] ?>">
                     </div>
                     <div class="mb-3">
                         <label for="cognome" class="form-label">Cognome</label>
-                        <input type="text" class="form-control" id="cognome" placeholder="<?php echo $_SESSION['utente']['cognome']?>">
+                        <input type="text" class="form-control" id="cognome" placeholder="<?php echo $_SESSION['utente']['cognome'] ?>">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" id="email" placeholder="<?php echo $_SESSION['utente']['email']?>">
+                        <input type="email" class="form-control" id="email" placeholder="<?php echo $_SESSION['utente']['email'] ?>">
                     </div>
                     <h6 class="text-danger">Vuoi modificare la password?</h6>
                     <div class="mb-3 p-2 border border-danger rounded">
