@@ -17,8 +17,6 @@ if (!isset($_SESSION['utente'])) {
     <!-- titolo del progetto -->
     <title>carrello</title>
 
-    <!-- il mio file css -->
-    <link rel="stylesheet" href="../../css/carrello.css">
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -30,7 +28,7 @@ if (!isset($_SESSION['utente'])) {
         <div class="container-fluid">
 
             <!-- tasto con titolo per tornare indietro -->
-            <a class="navbar-brand" href="#">E-commerce</a>
+            <a class="navbar-brand" href="./home.php">E-commerce</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -113,8 +111,8 @@ if (!isset($_SESSION['utente'])) {
 
         <?php
         //se è presente qualcosa nel carrello stamperà il carrello altrimenti dirà che è vuoto
-        $carrello = $_SESSION['utente']['carrello'];
-        if (isset($carrello) && !empty($carrello)) {
+        if (isset($_SESSION['utente']['carrello']) && !empty($_SESSION['utente']['carrello'])) {
+            $carrello = $_SESSION['utente']['carrello'];
         ?>
 
             <table id="carrello" class="table table-hover table-condensed">
@@ -131,34 +129,36 @@ if (!isset($_SESSION['utente'])) {
 
                 <!-- contenuto tabella (prodotti) -->
                 <tbody>
-                    <tr>
-                        <td data-th="prodotto">
-                            <div class="row">
-                                <div class="col-sm-2"><img src="./placeholder.png" alt="..." class="img-responsive" width="100" height="100" /></div>
-                                <div class="col-sm-10">
-                                    <h4 class="nomargin">Nome prodotto</h4>
-                                    <p>La descrizione del prodotto comparirà qui e sarà molto bella e dettagliataz sto cercando di tirare il discorso per dare una idea di come funzionerà se il testo è lungo</p>
+                    <?php foreach ($carrello as $prodotto) { ?>
+                        <tr>
+                            <td data-th="prodotto">
+                                <div class="row">
+                                    <div class="col-sm-2"><img src="./placeholder.png" alt="..." class="img-responsive" width="100" height="100" /></div>
+                                    <div class="col-sm-10">
+                                        <h4 class="nomargin"><?php echo $prodotto["prodotto"] ?></h4>
+                                        <p><?php echo $prodotto["descrizione"] ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
+                            </td>
 
-                        <td data-th="quantità">
-                            <p>2</p>
-                        </td>
+                            <td data-th="quantità">
+                                <p><?php echo $prodotto["quantita"] ?></p>
+                            </td>
 
-                        <td data-th="prezzo">13€</td>
+                            <td data-th="prezzo"><?php $prodotto["prezzo"] ?></td>
 
-                        <td class="actions" data-th="">
-                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                        </td>
-                    </tr>
+                            <td class="actions" data-th="">
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                            </td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
 
                 <!-- parte finale della tabella -->
                 <tfoot>
                     <tr>
                         <form method="POST" action="">
-                            <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Compra ancora</a></td>
+                            <td><a href="./home.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Compra ancora</a></td>
                             <td class="hidden-xs">
                                 <select name="metodo_pagamento">
                                     <option value="carta">Mastercard</option>
