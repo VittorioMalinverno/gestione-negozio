@@ -110,16 +110,8 @@ if (!isset($_SESSION['utente'])) {
                         <input type="text" class="form-control mb-2" id="passwordNuova2" placeholder="Nuova password">
                     </div>
                     <div class="mb-3">
-                        <label for="città" class="form-label" id="indirizzoDiConsegna">Città</label>
-                        <input type="email" class="form-control" id="città" placeholder="Città attuale">
-                    </div>
-                    <div class="mb-3">
-                        <label for="via" class="form-label">Via</label>
-                        <input type="email" class="form-control" id="via" placeholder="Via attuale">
-                    </div>
-                    <div class="mb-3">
-                        <label for="civico" class="form-label">Civico</label>
-                        <input type="email" class="form-control" id="civico" placeholder="Civico attuale">
+                        <label for="indirizzo" class="form-label" id="indirizzoDiConsegna">Indirizzo</label>
+                        <input type="email" class="form-control" id="indirizzo" placeholder="Indirizzo attuale">
                     </div>
                     <h6 class="text-danger">Vuoi eliminare l'account?</h6>
                     <div class="mb-3 p-2 border border-danger rounded">
