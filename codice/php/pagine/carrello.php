@@ -65,7 +65,7 @@ if (!isset($_SESSION['utente'])) {
 
                 <!-- tasto per accedere e carrello -->
                 <div class="d-flex">
-                    <a href="./login.php" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5">
+                    <a href="./utentePriv.php" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5">
                         <?php
                         if (isset($_SESSION['utente'])) {
                             echo "Ciao, " . $_SESSION['utente']['nome'];
