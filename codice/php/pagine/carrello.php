@@ -129,7 +129,12 @@ if (!isset($_SESSION['utente'])) {
 
                 <!-- contenuto tabella (prodotti) -->
                 <tbody>
-                    <?php foreach ($carrello as $prodotto) { ?>
+
+                    <?php
+                    $totale = 0;
+                    foreach ($carrello as $prodotto) {
+                    ?>
+
                         <tr>
                             <td data-th="prodotto">
                                 <div class="row">
@@ -151,14 +156,19 @@ if (!isset($_SESSION['utente'])) {
                                 <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
                             </td>
                         </tr>
-                    <?php } ?>
+
+                    <?php
+                        $totale = $totale + (float)$prodotto["prezzo"] * (float)$prodotto["quantita"];
+                    }
+                    ?>
+
                 </tbody>
 
                 <!-- parte finale della tabella -->
                 <tfoot>
                     <tr>
                         <form method="POST" action="">
-                            <td><a href="./home.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Compra ancora</a></td>
+                            <td class="hidden-xs">
                             <td class="hidden-xs">
                                 <select name="metodo_pagamento">
                                     <option value="carta">Mastercard</option>
@@ -166,7 +176,7 @@ if (!isset($_SESSION['utente'])) {
                                     <option value="paypal">Paypal</option>
                                 </select>
                             </td>
-                            <td class="hidden-xs"><strong>Totale 23€</strong></td>
+                            <td class="hidden-xs"><strong><?php echo "Totale: " . $totale ?></strong></td>
                             <td><a href="#"><button class="btn btn-success btn-block" type="submit"> Paga </button></a></td>
                         </form>
                     </tr>
