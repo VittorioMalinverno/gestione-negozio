@@ -11,15 +11,6 @@ login.onclick = async() =>{
     });
     console.log(rsp);
     if(rsp.result){     
-        /**    
-        await fetch("./login.php",{
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify({response: rsp.result})
-        })
-        */
         window.location.href = "./login.php?response="+rsp.result;
     }
 }
