@@ -19,8 +19,8 @@ if (!isset($_GET["idProdotto"]) || empty($_GET["idProdotto"])) {
             if ($presente == -1) {
                 $_SESSION['utente']['carrello'][] = [
                     "prodotto" => $prodotto,
-                    "descrizione" => "descrizione",
-                    "prezzo" => "prezzo",
+                    "descrizione" => "molto descritto",
+                    "prezzo" => "10",
                     "quantita" => intval($quantita),
 
                 ];
