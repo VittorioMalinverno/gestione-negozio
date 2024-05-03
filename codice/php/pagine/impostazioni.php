@@ -40,17 +40,14 @@ if (!isset($_SESSION['utente'])) {
 
                 </ul>
 
-                <!-- tasto per accedere e carrello -->
                 <div class="d-flex">
-                    <a href="" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5">
-                        <?php
-                        if (isset($_SESSION['utente'])) {
-                            echo "Ciao, " . $_SESSION['utente']['nome'];
-                        } else {
-                            echo "Ciao, accedi";
-                        }
-                        ?>
-                    </a>
+                    <?php
+                    if (isset($_SESSION['loggato'])) {
+                        echo "<a href=\"./utentePriv.php\" class=\"link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5\">Ciao, " . $_SESSION['utente']['nome'] . "</a>";
+                    } else {
+                        echo "<a href=\"./login.php\" class=\"link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5\">Ciao, accedi</a>";
+                    }
+                    ?>
                     <a href="./carrello.php" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart" viewBox="0 0 16 16">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
@@ -89,6 +86,14 @@ if (!isset($_SESSION['utente'])) {
             <div class="col-7 mt-4 ms-6 text-start overflow-y-scroll max-h">
                 <div class="mt-3">
                     <div class="mb-3">
+                        <label for="emailAttuale" class="form-label">Inserisci l'e-mail attuale per questioni di sicurezza</label>
+                        <input type="email" class="form-control" id="emailAttuale" placeholder="E-mail attuale">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordAttuale" class="form-label mt-2">Inserisci la password attuale per questioni di sicurezza</label>
+                        <input type="password" class="form-control mb-2" id="passwordAttuale" placeholder="Password attuale">
+                    </div>
+                    <div class="mb-3">
                         <label for="nome" class="form-label" id="dettagliAccount">Nome</label>
                         <input type="text" class="form-control" id="nome" placeholder="<?php echo $_SESSION['utente']['nome'] ?>">
                     </div>
@@ -96,29 +101,28 @@ if (!isset($_SESSION['utente'])) {
                         <label for="cognome" class="form-label">Cognome</label>
                         <input type="text" class="form-control" id="cognome" placeholder="<?php echo $_SESSION['utente']['cognome'] ?>">
                     </div>
+
                     <div class="mb-3">
-                        <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" id="email" placeholder="<?php echo $_SESSION['utente']['email'] ?>">
-                    </div>
-                    <h6 class="text-danger">Vuoi modificare la password?</h6>
-                    <div class="mb-3 p-2 border border-danger rounded">
-                        <label for="passwordAttuale" class="form-label mt-2">Inserisci la password attuale</label>
-                        <input type="text" class="form-control mb-2" id="passwordAttuale" placeholder="Password attuale">
-                        <label for="passwordNuova" class="form-label mt-2">Inserisci la nuova password</label>
-                        <input type="text" class="form-control mb-2" id="passwordNuova" placeholder="Nuova password">
-                        <label for="passwordNuova2" class="form-label mt-2">Reinserisci la nuova password</label>
-                        <input type="text" class="form-control mb-2" id="passwordNuova2" placeholder="Nuova password">
+                        <label for="emailNuova" class="form-label">E-mail nuova</label>
+                        <input type="email" class="form-control" id="emailNuova" placeholder="<?php echo "Inserire la nuova email" ?>">
                     </div>
                     <div class="mb-3">
                         <label for="indirizzo" class="form-label" id="indirizzoDiConsegna">Indirizzo</label>
                         <input type="email" class="form-control" id="indirizzo" placeholder="Indirizzo attuale">
+                    </div>
+                    <h6 class="text-danger">Vuoi modificare la password?</h6>
+                    <div class="mb-3 p-2 border border-danger rounded">
+                        <label for="passwordNuova" class="form-label mt-2">Inserisci la nuova password</label>
+                        <input type="text" class="form-control mb-2" id="passwordNuova" placeholder="Nuova password">
+                        <label for="passwordNuova2" class="form-label mt-2">Reinserisci la nuova password</label>
+                        <input type="text" class="form-control mb-2" id="passwordNuova2" placeholder="Nuova password">
                     </div>
                     <h6 class="text-danger">Vuoi eliminare l'account?</h6>
                     <div class="mb-3 p-2 border border-danger rounded">
                         <label for="eliminaAccount" class="form-label mt-2">Scrivi "ELIMINA"</label>
                         <input type="text" class="form-control mb-2" id="eliminaAccount" placeholder="ELIMINA">
                         <div class="d-grid justify-content-end mt-2">
-                            <button type="button" class="btn btn-danger">Elimina account</button>
+                            <button type="button" class="btn btn-danger" id="buttonElimina">Elimina account</button>
                         </div>
                     </div>
                     <h6 class="text-success">Vuoi salvare le modifiche?</h6>
@@ -126,14 +130,14 @@ if (!isset($_SESSION['utente'])) {
                         <label for="confermaModifiche" class="form-label mt-2">Scrivi "CONFERMA"</label>
                         <input type="text" class="form-control mb-2" id="confermaModifiche" placeholder="CONFERMA">
                         <div class="d-grid justify-content-end mt-2">
-                            <button type="button" class="btn btn-success">Salva modifiche</button>
+                            <button type="button" class="btn btn-success" id="buttonConferma">Salva modifiche</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="../../javascript/aggiornaDati.js" type="module"></script>
     <!-- js di bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

@@ -8,19 +8,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $requestBody = file_get_contents('php://input');
         $request_data = json_decode($requestBody, true);
-        $body_data = $request_data['body'];
-        $email = $body_data['email'] ?? null;
-        $nome = $body_data['nome'] ?? null;
-        $cognome = $body_data['cognome'] ?? null;
-        $password = $body_data['password'] ?? null;
-        $tipologia = $body_data['tipologia'] ?? null;
-        $indirizzo = $body_data['indirizzo'] ?? null;
-        $nuovaMail = $body_data['nuovaMail'] ?? null;
+       // $body_data = $request_data['body'];
+        $email = $request_data['email'] ?? null;
+        $nome = $request_data['nome'] ?? null;
+        $cognome = $request_data['cognome'] ?? null;
+        $password = $request_data['password'] ?? null;
+        $tipologia = $request_data['tipologia'] ?? null;
+        $indirizzo = $request_data['indirizzo'] ?? null;
+        $nuovaMail = $request_data['nuovaMail'] ?? null;
         if (isset($email) && !empty($email)) {
             $ricercaUtente = "SELECT * FROM utente WHERE email = '$email'";
             require("./connection.php");
             $utente = $conn->query($ricercaUtente);
-            if ($utente->num_rows == 1) {
+            if (mysqli_num_rows($utente) == 1) {
                 $conditions = [];
                 $password = password_hash($password, PASSWORD_DEFAULT);
                 if (!empty($nome)) {
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $conditions[] = "stock = $stock";
                 }
                 if (!empty($indirizzo)) {
-                    $conditions[] = "stock = $indirizzo";
+                    $conditions[] = "indirizzo = $indirizzo";
                 }
                 if (!empty($nuovaMail)) {
                     $conditions[] = "email = $nuovaMail";
