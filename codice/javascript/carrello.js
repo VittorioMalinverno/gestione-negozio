@@ -1,7 +1,7 @@
 import { creaOrdini } from "./viewArticoli.js";
 
 // Retrieve the cart array from the session
-const carrello = JSON.parse(sessionStorage.getItem(utente.carrello));
+const carrello = sessionStorage.getItem(utente.carrello);
 console.log(carrello);
 
 if (carrello) {
