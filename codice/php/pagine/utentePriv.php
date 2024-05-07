@@ -66,7 +66,7 @@ session_start();
             </div>
             <div class="col-6 d-flex flex-column justify-content-start align-items-end mt-5">
                 <a href="./impostazioni.php" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover mb-2">Impostazioni</a>
-                <a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover mt-2">I miei ordini</a>
+                <a href="./ordini.php" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover mt-2">I miei ordini</a>
             </div>
         </div>
     </div>

@@ -4,7 +4,9 @@ if (!isset($_GET["idProdotto"]) || empty($_GET["idProdotto"])) {
 } else {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $quantita = intval($_POST['quantita']);
-        $prodotto = $_POST["add"];
+        $prodotto = $_POST["agg_nome"];
+        $descrizione = $_POST["agg_descrizione"];
+        $prezzo = $_POST["agg_prezzo"];
         if ($quantita >= 1 && isset($prodotto) && !empty($prodotto)) {
             session_start();
             if (!isset($_SESSION['utente']['carrello'])) {
@@ -19,16 +21,15 @@ if (!isset($_GET["idProdotto"]) || empty($_GET["idProdotto"])) {
             if ($presente == -1) {
                 $_SESSION['utente']['carrello'][] = [
                     "prodotto" => $prodotto,
-                    "descrizione" => "molto descritto",
-                    "prezzo" => "10",
+                    "descrizione" => $descrizione,
+                    "prezzo" => $prezzo,
                     "quantita" => intval($quantita),
-
                 ];
             } else {
                 $_SESSION['utente']['carrello'][$presente]['quantita'] = $_SESSION['utente']['carrello'][$presente]['quantita'] + intval($quantita);
             }
 
-            header("location: ./carrello.php");
+            header("location: ./home.php");
         }
     }
 }
@@ -163,7 +164,9 @@ if (!isset($_GET["idProdotto"]) || empty($_GET["idProdotto"])) {
             <div class="d-grid gap-2 mt-5">
                 <form method="post">
                     <input type="number" name="quantita" min="1" value="1" />
-                    <input type="hidden" name="add" id="add" />
+                    <input type="hidden" name="agg_nome" id="agg_nome" />
+                    <input type="hidden" name="agg_descrizione" id="agg_descrizione" />
+                    <input type="hidden" name="agg_prezzo" id="agg_prezzo" />
                     <input type="submit" class="btn btn-primary rounded-pill" value="Aggiungi al carrello" />
                 </form>
             </div>

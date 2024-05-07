@@ -16,6 +16,42 @@ export const recuperaProdotti = () => {
     });
 };
 
+export const recuperaOrdini = (email) => {
+    return new Promise((resolve, reject) => {
+        fetch("../servizi/recuperaOrdini.php", {
+            method: "Post",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({email: email})
+        })
+            .then((element) => {
+                return element.json();
+            }).then((response) => {
+                resolve(response);
+            })
+            .catch((error) => reject(error));
+    });
+};
+
+export const creaOrdini = (lista_ordini) => {
+    return new Promise((resolve, reject) => {
+        fetch("../servizi/creaOrdine.php", {
+            method: "Post",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(lista_ordini)
+        })
+            .then((element) => {
+                return element.json();
+            }).then((response) => {
+                resolve(response);
+            })
+            .catch((error) => reject(error));
+    });
+};
+
 export const recuperaQuantitaVenduta = ()=>{
     return new Promise((resolve, reject) => {
         fetch("../servizi/prodottoVenduto.php", {

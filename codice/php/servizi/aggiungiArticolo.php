@@ -9,13 +9,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $requestBody = file_get_contents('php://input');
         $request_data = json_decode($requestBody, true);
-        $body_data = $request_data['body'] ?? null;
-        $prezzo = $body_data['prezzo'] ?? null;
-        $descrizione = $body_data['descrizione'] ?? null;
-        $tipologia = $body_data['tipologia'] ?? null;
-        $nome = $body_data['nome'] ?? null;
-        $stock = $body_data['stock'] ?? null;
-        $immagineSerializzata = $body_data['immagineSerializzata'] ?? null;
+        //$body_data = $request_data['body'] ?? null;
+        $prezzo = $request_data['prezzo'] ?? null;
+        $descrizione = $request_data['descrizione'] ?? null;
+        $tipologia = $request_data['tipologia'] ?? null;
+        $nome = $request_data['nome'] ?? null;
+        $stock = $request_data['stock'] ?? null;
+        $immagineSerializzata = $request_data['immagineSerializzata'] ?? null;
         if (isset($prezzo) && isset($descrizione) && isset($tipologia) && isset($nome) && isset($stock) && isset($immagineSerializzata) && !empty($prezzo) && !empty($descrizione) && !empty($tipologia) && !empty($nome) && !empty($stock) && !empty($immagineSerializzata)) {
             $error = "";
             try {
