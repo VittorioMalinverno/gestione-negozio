@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+// Assuming $articoli is the array of articles in the cart
+$articoli = $_SESSION["utente"]["carrello"];
+
 if (!isset($_SESSION['utente'])) {
     header("location: ./home.php");
 }
@@ -23,6 +27,8 @@ if (!isset($_SESSION['utente'])) {
 </head>
 
 <body>
+    <p id="carrello" style="display: none;"><?php echo $_SESSION["utente"]["carrello"] ?></p>
+
     <!-- navbar principale -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
@@ -150,7 +156,7 @@ if (!isset($_SESSION['utente'])) {
                                 <p><?php echo $prodotto["quantita"] ?></p>
                             </td>
 
-                            <td data-th="prezzo"><?php $prodotto["prezzo"] ?></td>
+                            <td data-th="prezzo"><?php echo $prodotto["prezzo"] * $prodotto["quantita"] ?></td>
 
                             <td class="actions" data-th="">
                                 <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
@@ -190,7 +196,8 @@ if (!isset($_SESSION['utente'])) {
         ?>
 
     </div>
-
+    <!-- js personale -->
+    <script src="../../javascript/carrello.js" type="module"></script>
 </body>
 
 </html>

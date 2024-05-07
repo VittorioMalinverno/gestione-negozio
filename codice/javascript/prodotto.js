@@ -6,13 +6,19 @@ const categoria = document.getElementById("categoria");
 const nomeProdotto = document.getElementById("nomeProdotto");
 const prezzo = document.getElementById("prezzo");
 const stockRimanente = document.getElementById("stockRimanente");
-const add = document.getElementById("add");
+
+const agg_nome = document.getElementById("agg_nome");
+const agg_descrizione = document.getElementById("agg_descrizione");
+const agg_prezzo = document.getElementById("agg_prezzo");
 
 window.onload = async() =>{
     const rsp = await recuperaProdotti();
     const articolo = rsp.result.find(element => element.id == idProdotto);
+    console.log(articolo);
     if(articolo != null){
-        add.value = articolo.nome;
+        agg_nome.value = articolo.nome;
+        agg_descrizione.value = articolo.descrizione;
+        agg_prezzo.value = articolo.prezzo;
         descrizione.innerText = articolo.descrizione;
         categoria.innerText = articolo.tipologia;
         nomeProdotto.innerText = articolo.nome;

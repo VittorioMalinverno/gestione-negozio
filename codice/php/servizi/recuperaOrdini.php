@@ -7,8 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $requestBody = file_get_contents('php://input');
         $request_data = json_decode($requestBody, true);
-        $body_data = $request_data['body'];
-        $email =  $body_data['email'] ?? null;;
+        //$body_data = $request_data['body'];
+        $email =  $request_data['email'] ?? null;;
         if (isset($email) && !empty($email)) {
             require("./connection.php");
             $query = "SELECT ordine.*, utente.nome FROM ordine INNER JOIN ON utente.id = ordine.idUtente WHERE utente.email = '" . $email . "'";
