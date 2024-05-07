@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email =  $request_data['email'] ?? null;;
         if (isset($email) && !empty($email)) {
             require("./connection.php");
-            $query = "SELECT ordine.*, utente.nome FROM ordine INNER JOIN ON utente.id = ordine.idUtente WHERE utente.email = '" . $email . "'";
+            $query = "SELECT * FROM ordine INNER JOIN utente ON utente.id = ordine.idUtente WHERE utente.email = '" . $email . "'";
             $res = $conn->query($query);
             $result = [];
             while ($row = $res->fetch_assoc()) {
