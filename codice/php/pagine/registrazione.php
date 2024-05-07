@@ -1,9 +1,3 @@
-<?php
-session_start();
-if (isset($_GET['response'])) {
-    $_SESSION['error'] = $_GET['response'];
-}
-?>
 <!DOCTYPE html>
 
 <html>
@@ -14,11 +8,11 @@ if (isset($_GET['response'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- titolo della pagina -->
-    <title>Login</title>
+    <title>Registrazione</title>
 
     <!-- css di bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
+
     <!-- il mio file css -->
     <link rel="stylesheet" href="../../css/login.css">
 
@@ -32,15 +26,15 @@ if (isset($_GET['response'])) {
                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
                 </svg>
             </div>
-            <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+            <form onsubmit="return false" method="post">
                 <div class="card-body">
                     <div class="mb-3">
                         <?php
                         //codice per gestire la visualizzazione dell'alert
-                        if (isset($_SESSION['error'])) { //se c'è un errore
-                            $error = $_SESSION['error']; //lo recupero
-                            unset($_SESSION['error']); //pulisco la sessione
+                        if (isset($_COOKIE["error"])) { //se c'è un errore
+                            $error = $_COOKIE["error"]; //lo recupero
                             echo "<div id='alert'>";
+                            setcookie("error", "", time() - 3600);
                         } else {
                             echo "<div id='alert' class='d-none'>";
                         }
@@ -58,10 +52,6 @@ if (isset($_GET['response'])) {
                                 <use xlink:href="#exclamation-triangle-fill"></use>
                             </svg>
                             <strong id="testoAlert">
-                                <?php
-                                //stampo il testo dell'errore dentro l'alert
-                                echo $error;
-                                ?>
                             </strong>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             <!-- bottone per chiudere l'alert -->

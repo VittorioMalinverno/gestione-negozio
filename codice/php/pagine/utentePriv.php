@@ -62,7 +62,6 @@ session_start();
             <div class="col-6 d-flex justify-content-start align-items-center">
                 <div>
                     <h2>Ciao, <?php echo $_SESSION['utente']['nome'] ?></h2>
-                    <p>registrato il...</p>
                 </div>
             </div>
             <div class="col-6 d-flex flex-column justify-content-start align-items-end mt-5">

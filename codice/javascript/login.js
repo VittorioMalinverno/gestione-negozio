@@ -12,5 +12,8 @@ login.onclick = async() =>{
     console.log(rsp);
     if(rsp.result){     
         window.location.href = "./login.php?response="+rsp.result;
+    } else {
+        document.cookie = "error = Errore nella login, riprovare";
+        window.location.href = "./login.php";
     }
 }

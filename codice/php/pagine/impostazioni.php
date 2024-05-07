@@ -108,7 +108,7 @@ if (!isset($_SESSION['utente'])) {
                     </div>
                     <div class="mb-3">
                         <label for="indirizzo" class="form-label" id="indirizzoDiConsegna">Indirizzo</label>
-                        <input type="email" class="form-control" id="indirizzo" placeholder="Indirizzo attuale">
+                        <input type="email" class="form-control" id="indirizzo" placeholder="<?php echo $_SESSION['utente']['indirizzo'] ?>">
                     </div>
                     <h6 class="text-danger">Vuoi modificare la password?</h6>
                     <div class="mb-3 p-2 border border-danger rounded">
