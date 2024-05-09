@@ -1,13 +1,27 @@
 <?php
 session_start();
 
-// Assuming $articoli is the array of articles in the cart
-$articoli = $_SESSION["utente"]["carrello"];
-
 if (!isset($_SESSION['utente'])) {
     header("location: ./home.php");
 }
+
+
+// Check if the session array exists
+if (isset($_SESSION['utente']['carrello'])) {
+    // Convert the session array to JSON
+    $carrello = json_encode($_SESSION['utente']['carrello']);
+
+    // Remove any trailing whitespace or newline characters
+    $carrello = rtrim($carrello);
+
+    // Send the JSON response
+    echo $carrello;
+} else {
+    // Send an empty JSON response
+    echo json_encode([]);
+}
 ?>
+
 
 <!DOCTYPE html>
 
@@ -27,8 +41,6 @@ if (!isset($_SESSION['utente'])) {
 </head>
 
 <body>
-    <p id="carrello" style="display: none;"><?php echo $_SESSION["utente"]["carrello"] ?></p>
-
     <!-- navbar principale -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
@@ -120,6 +132,8 @@ if (!isset($_SESSION['utente'])) {
         if (isset($_SESSION['utente']['carrello']) && !empty($_SESSION['utente']['carrello'])) {
             $carrello = $_SESSION['utente']['carrello'];
         ?>
+
+            <p id="carrello" style="display: none;"><?php print_r($_SESSION["utente"]["carrello"]) ?></p>
 
             <table id="carrello" class="table table-hover table-condensed">
 
