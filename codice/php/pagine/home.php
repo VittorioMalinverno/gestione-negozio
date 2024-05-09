@@ -1,9 +1,8 @@
-<?php
-  session_start();
-?>
+<?php session_start() ?>
+
 <!DOCTYPE html>
 
-<html lang="it">
+<html>
 
 <head>
   <!-- caratteristiche del file  -->
@@ -15,18 +14,17 @@
 
   <!-- il mio file css -->
   <link rel="stylesheet" href="../../css/home.css">
-  <!-- css di bootstrap -->
+  <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
-
   <!-- navbar principale -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
 
-      <!-- tasto con titolo per tornare indietro -->
-      <a class="navbar-brand" href="#">E-commerce</a>
+      <!-- tasto con titolo per tornare alla home -->
+      <a class="navbar-brand" href="../pagine/home.php">E-commerce</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,7 +35,7 @@
 
           <!-- barra di ricerca -->
           <li class="nav-item">
-            <form class="d-flex" role="search" onsubmit="return false">
+            <form class="d-flex" role="search" onsubmit="">
               <input class="form-control me-2" id="prodottoSearch" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-light" type="submit" id="cerca">Search</button>
             </form>
@@ -45,7 +43,7 @@
 
           <!-- selezione di un menù a tendina -->
           <div class="ms-20">
-            <li class="nav-item dropdown" >
+            <li class="nav-item dropdown">
 
               <!-- interazione menù a tendina -->
               <a class="nav-link dropdown-toggle" id="viewCategorie" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,11 +62,11 @@
         <!-- tasto per accedere e carrello -->
         <div class="d-flex">
           <?php
-            if(isset($_SESSION['loggato'])){
-              echo "<a href=\"./utentePriv.php\" class=\"link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5\">Ciao, ".$_SESSION['utente']['nome']."</a>";
-            }else{
-              echo "<a href=\"./login.php\" class=\"link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5\">Ciao, accedi</a>";
-            }
+          if (isset($_SESSION['loggato'])) {
+            echo "<a href=\"./utentePriv.php\" class=\"link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5\">Ciao, " . $_SESSION['utente']['nome'] . "</a>";
+          } else {
+            echo "<a href=\"./login.php\" class=\"link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5\">Ciao, accedi</a>";
+          }
           ?>
           <a href="./carrello.php" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart" viewBox="0 0 16 16">
@@ -132,7 +130,7 @@
   <!-- card dei prodotti -->
   <div class="mt-5 container text-center">
     <div class="row align-items-start" id="articoli">
-    
+
     </div>
   </div>
   <script src="../../javascript/home.js" type="module"></script>
