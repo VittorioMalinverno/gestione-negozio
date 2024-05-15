@@ -45,7 +45,7 @@ if (isset($_COOKIE['loggato']) && $_COOKIE['loggato'] === "true") {
                         <?php
                         $error = "";
                         //codice per gestire la visualizzazione dell'alert
-                        if (isset($_COOKIE["error"]) || $_GET['response'] === "L'utente non risulta registrato") { //se c'è un errore
+                        if (isset($_COOKIE["error"])) { //se c'è un errore
                             $error = $_COOKIE["error"] ?? "Utente non registrato"; //lo recupero
                             echo "<div id='alert'>";
                             setcookie("error", "", time() - 3600);

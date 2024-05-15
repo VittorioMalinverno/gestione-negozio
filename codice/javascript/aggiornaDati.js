@@ -27,11 +27,9 @@ const aggiornaUtente = (dizionario) => {
                 return element.json();
             }).then((response) => {
                 resolve(response);
-                console.log(response);
             })
             .catch((error) => {
                 reject(error);
-                console.log(error);
             });
     });
 }
@@ -50,11 +48,9 @@ const eliminaUtente = (dizionario) => {
                 return element.json();
             }).then((response) => {
                 resolve(response);
-                console.log(response);
             })
             .catch((error) => {
                 reject(error);
-                console.log(error);
             });
     });
 }
@@ -92,12 +88,12 @@ buttonConferma.onclick = async () => {
                 if (passwordNuova.value !== "") {
                     dict.password = passwordNuova.value;
                 };
-                if (indirizzo.value !== "") { 
+                if (indirizzo.value !== "") {
                     dict.indirizzo = indirizzo.value;
                 }
                 const response = await aggiornaUtente(dict);
                 if (response.result) {
-                    //window.location.href = "./utentePriv.php?response=" + response.result;
+                    window.location.href = "../pagine/utentePriv.php?modifica=" + response.result;
                 }
             } else {
                 console.log("password diverse");
@@ -122,7 +118,11 @@ buttonElimina.onclick = async () => {
                 email: emailAttuale.value,
                 password: passwordAttuale.value,
             }
-            eliminaUtente(dict);
+            const response = await eliminaUtente(dict);
+            console.log("Response: "+response.result);
+            if (response.result == "Eliminazione avvenuta con successo") {
+                window.location.href = "../pagine/login.php";
+            }
         }
     } else {
         console.log("scrivi elimina");

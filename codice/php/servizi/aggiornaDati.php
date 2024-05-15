@@ -62,6 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $queryUpdate .= implode(", ", $updateFields);
                     $queryUpdate .= " WHERE email='" . $email . "'";
                     $conn->query($queryUpdate);
+                    $_SESSION['utente']['nome'] = $nome;
+                    $_SESSION['utente']['cognome'] = $cognome;
+                    $_SESSION['utente']['indirizzo'] = $indirizzo;
                     echo  json_encode(["result" => "OK"]);
                     require("./closeConnection.php");
                     exit();
