@@ -98,10 +98,10 @@
     </nav>
 
 
-    <div class="mt-5 container text-center">
-        <div class="row align-items-start" id="articoli">
-            <div class="col">
-                <div class="card">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col mx-5 my-2">
+                <div class="card h-100">
                     <img src="../../css/magazzino.jpg" class="card-img-top" alt="Immagine del magazzino">
                     <div class="card-body">
                         <h2 class="card-title">MAGAZZINO</h2>
@@ -111,13 +111,13 @@
                             <li>Modifica articolo</li>
                             <li>Cancella articolo</li>
                             <li>Gestione stock</li>
+                            <li> <a href="#" class="btn btn-primary mt-2">Vai al magazzino</a></li>
                         </ul>
-                        <a href="#" class="btn btn-primary">Vai al magazzino</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
+            <div class="col mx-5 my-2">
+                <div class="card h-100">
                     <img src="../../css/ordini.jpg" class="card-img-top" alt="Immagine degli ordini">
                     <div class="card-body">
                         <h2 class="card-title">ORDINI</h2>
@@ -125,26 +125,27 @@
                         <ul class="no-bullets">
                             <li>Visualizzazione ordine</li>
                             <li>Cancellazione ordine</li>
-                            <li>Stato dell'ordine ('evaso'/'non evaso')</li>
+                            <li>Stato dell'ordine</li>
+                            <li><a href="#" class="btn btn-primary mt-4">Vai agli ordini</a></li>
                         </ul>
-                        <a href="#" class="btn btn-primary">Vai agli ordini</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
+            <div class="col mx-5 my-2">
+                <div class="card h-100">
                     <img src="../../css/statistiche.jpg" class="card-img-top" alt="Immagine delle statistiche">
                     <div class="card-body">
                         <h2 class="card-title">STATISTICHE</h2>
                         <p class="card-text">Qui vengono visualizzate le statistiche di vendita del negozio:</p>
-                        <ul>
+                        <ul class="no-bullets">
                             <li>Classificazione prodotti più venduti</li>
                             <li>Classifica dei clienti con più ordini</li>
                             <li>Classifica dei metodi di pagamento più utilizzati</li>
+                            <li><a href="#" class="btn btn-primary mt-3">Vai alle statistiche</a></li>
                         </ul>
-                        <a href="#" class="btn btn-primary">Vai alle statistiche</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

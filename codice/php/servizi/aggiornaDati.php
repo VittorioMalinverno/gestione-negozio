@@ -51,7 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     require("./closeConnection.php");
                     exit();
                 } else {
-                    $queryUpdate = "UPDATE utente SET ";
                     if (isset($nome) && isset($cognome) && isset($password)  && isset($tipologia) && isset($indirizzo) && isset($nuovaMail)) {
                         $queryUpdate = "UPDATE utente SET ";
                         $queryUpdate .= implode(", ", $conditions);
