@@ -53,7 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } else {
                     $queryUpdate = "UPDATE utente SET ";
                     if (isset($nome) && isset($cognome) && isset($password)  && isset($tipologia) && isset($indirizzo) && isset($nuovaMail)) {
-                        $queryUpdate .= $updateClause .= "WHERE email='" . $email . "'";
+                        $queryUpdate = "UPDATE utente SET ";
+                        $queryUpdate .= implode(", ", $conditions);
+                        $queryUpdate .= " WHERE email='" . $email . "'";
                         $conn->query($queryUpdate);
                         echo  json_encode(["result" => "Modifica avvenuta con successo"]);
                         require("./closeConnection.php");
@@ -61,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     } else {
 
                         echo  json_encode(["result" => "Non sono stati specificati i campi da modificare"]);
-                        require("./closeConnection.php");
+                        require("./closeConnection.php"); 
                         exit();
                     }
                 }
