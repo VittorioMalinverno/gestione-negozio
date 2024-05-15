@@ -8,9 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $requestBody = file_get_contents('php://input');
         $request_data = json_decode($requestBody, true);
         $email = $request_data['email'] ?? null;
-        $password = $request_data['password'] ?? null;
-        if(!empty($email) && isset($email) && !empty($password) && isset($password)){
-            $query = "DELETE FROM utente WHERE email='".$email."' AND password='".$password."'";
+        if(!empty($email) && isset($email) ){
+            $query = "DELETE FROM utente WHERE email='".$email."'";
             require("./connection.php");
             $conn->query($query);
             require("./closeConnection.php");
