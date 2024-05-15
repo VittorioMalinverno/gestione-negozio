@@ -36,6 +36,29 @@ const aggiornaUtente = (dizionario) => {
     });
 }
 
+const eliminaUtente = (dizionario) => {
+    console.log(dizionario);
+    return new Promise((resolve, reject) => {
+        fetch("../servizi/eliminaAccount.php", {
+            method: "Post",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(dizionario)
+        })
+            .then((element) => {
+                return element.json();
+            }).then((response) => {
+                resolve(response);
+                console.log(response);
+            })
+            .catch((error) => {
+                reject(error);
+                console.log(error);
+            });
+    });
+}
+
 buttonConferma.onclick = async () => {
     if (confermaModifiche.value === "CONFERMA") {
         const rsp = await funLogin({
@@ -82,5 +105,26 @@ buttonConferma.onclick = async () => {
         } else {
             console.log("Credenziali errate");
         }
+    } else {
+        console.log("Scrivi conferma");
+    }
+}
+
+buttonElimina.onclick = async () => {
+    if (eliminaAccount.value === "ELIMINA") {
+        const rsp = await funLogin({
+            email: emailAttuale.value,
+            password: passwordAttuale.value
+        })
+        console.log("Login: " + rsp.result);
+        if (rsp.result) {
+            const dict = {
+                email: emailAttuale.value,
+                password: passwordAttuale.value,
+            }
+            eliminaUtente(dict);
+        }
+    } else {
+        console.log("scrivi elimina");
     }
 }
