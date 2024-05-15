@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_GET['response'])) {
-    if ($_GET['response'] === "true") {
+    if ($_GET['response'] === "true" ) {
         $_SESSION['loggato'] = true;
         header("location: ./home.php");
     }
@@ -44,8 +44,8 @@ if (isset($_COOKIE['loggato']) && $_COOKIE['loggato'] === "true") {
                     <div class="mb-3">
                         <?php
                         //codice per gestire la visualizzazione dell'alert
-                        if (isset($_COOKIE["error"])) { //se c'è un errore
-                            $error = $_COOKIE["error"]; //lo recupero
+                        if (isset($_COOKIE["error"]) || $_GET['response'] === "L'utente non risulta registrato") { //se c'è un errore
+                            $error = $_COOKIE["error"] ?? "Utente non registrato"; //lo recupero
                             echo "<div id='alert'>";
                             setcookie("error", "", time() - 3600);
                         } else {

@@ -36,32 +36,51 @@ const aggiornaUtente = (dizionario) => {
     });
 }
 
-buttonConferma.onclick = () => {
+buttonConferma.onclick = async () => {
     if (confermaModifiche.value === "CONFERMA") {
-        funLogin({
+        const rsp = await funLogin({
             email: emailAttuale.value,
             password: passwordAttuale.value
-        }).then((rsp) => {
-            if (rsp.result) {
-                if (passwordNuova.value === passwordNuova2.value) {
-                    aggiornaUtente({
-                        nome: nome.value,
-                        congome: cognome.value,
-                        email: emailNuova.value,
-                        password: passwordNuova.value,
-                        indirizzo: indirizzo.value,
-                    }).then((response) => {
-                        if (response.result) {
-                            //window.location.href = "./utentePriv.php?response=" + response.result;
-                        }
-                    })
-                } else {
-                    console.log("password diverse");
+        })
+        console.log("Login: " + rsp.result);
+        if (rsp.result) {
+            if (passwordNuova.value === passwordNuova2.value) {
+                const dict = {
+                    nome: "",
+                    cognome: "",
+                    email: "",
+                    nuovaMail: "",
+                    indirizzo: "",
+                    password: "",
+                    tipologia: "",
+                };
+                if (nome.value !== "") {
+                    dict.nome = nome.value;
+                }
+                if (cognome.value !== "") {
+                    dict.cognome = cognome.value;
+                };
+                if (emailAttuale.value !== "") {
+                    dict.email = emailAttuale.value;
+                };
+                if (emailNuova.value !== "") {
+                    dict.nuovaMail = emailNuova.value;
+                };
+                if (passwordNuova.value !== "") {
+                    dict.password = passwordNuova.value;
+                };
+                if (indirizzo.value !== "") { 
+                    dict.indirizzo = indirizzo.value;
+                }
+                const response = await aggiornaUtente(dict);
+                if (response.result) {
+                    //window.location.href = "./utentePriv.php?response=" + response.result;
                 }
             } else {
-                console.log(rsp.result);
+                console.log("password diverse");
             }
-        })
+        } else {
+            console.log("Credenziali errate");
+        }
     }
-
 }

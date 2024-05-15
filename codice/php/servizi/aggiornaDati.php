@@ -45,20 +45,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $conditions[] = "email = $nuovaMail";
                 }
                 $checkEmail = "SELECT * FROM utente WHERE email = '$nuovaMail'";
-                $userCheckEmail = $conn->query($queryVerifica);
+                $userCheckEmail = $conn->query($checkEmail);
                 if ($userCheckEmail->num_rows > 0) {
                     echo  json_encode(["result" => "Esiste già un utente con questa email"]);
                     require("./closeConnection.php");
                     exit();
                 } else {
                     $queryUpdate = "UPDATE utente SET ";
-                    if (!empty($whereClause) && !empty($nome) && isset($nome) && !empty($cognome) && isset($cognome) && !empty($password) && isset($password) && !empty($tipologia) && isset($tipologia) && !empty($indirizzo) && isset($indirizzo) && !empty($nuovaMail) && isset($nuovaMail)) {
+                    if (isset($nome) && isset($cognome) && isset($password)  && isset($tipologia) && isset($indirizzo) && isset($nuovaMail)) {
                         $queryUpdate .= $updateClause .= "WHERE email='" . $email . "'";
-                        $conn->query($queryVerifica);
+                        $conn->query($queryUpdate);
                         echo  json_encode(["result" => "Modifica avvenuta con successo"]);
                         require("./closeConnection.php");
                         exit();
                     } else {
+
                         echo  json_encode(["result" => "Non sono stati specificati i campi da modificare"]);
                         require("./closeConnection.php");
                         exit();
