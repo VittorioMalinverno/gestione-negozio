@@ -43,6 +43,7 @@ if (isset($_COOKIE['loggato']) && $_COOKIE['loggato'] === "true") {
                 <div class="card-body">
                     <div class="mb-3">
                         <?php
+                        $error = "";
                         //codice per gestire la visualizzazione dell'alert
                         if (isset($_COOKIE["error"]) || $_GET['response'] === "L'utente non risulta registrato") { //se c'è un errore
                             $error = $_COOKIE["error"] ?? "Utente non registrato"; //lo recupero
