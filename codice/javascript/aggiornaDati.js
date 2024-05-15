@@ -116,7 +116,6 @@ buttonElimina.onclick = async () => {
         if (rsp.result) {
             const dict = {
                 email: emailAttuale.value,
-                password: passwordAttuale.value,
             }
             const response = await eliminaUtente(dict);
             console.log("Response: "+response.result);
