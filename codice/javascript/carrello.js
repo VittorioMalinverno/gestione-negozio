@@ -1,12 +1,32 @@
 import { creaOrdini } from "./viewArticoli.js";
 
-// Retrieve the cart array from the session
-const carrello = sessionStorage.getItem(utente.carrello);
-console.log(carrello);
+document.getElementById('formPagamento').addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-if (carrello) {
-    // Call the creaOrdini function with the cart array
-    const risposta = await creaOrdini(carrello);
+    const formData = new FormData(this);
+    const metodoPagamento = formData.get('metodo_pagamento');
+
+    const paragrafo = document.getElementById("mail");
+    const email = paragrafo.textContent;
+
+    //controllo
+    console.log(email);
+    console.log(carrello);
+    console.log(metodoPagamento);
+
+    //formattazione carrello
+    let carrelloFormattato = [];
+    carrello.forEach(prodotto => {
+        carrelloFormattato.push({
+            "id": prodotto.prodotto,
+            "numero": prodotto.quantita
+        });
+    });
+
+    //variabile completa
+    let ordine = {"email": email, "articoli": carrelloFormattato, "modalitaPagamento": metodoPagamento};
+    console.log(ordine);
+
+    const risposta = await creaOrdini(ordine);
     console.log(risposta);
-    const articolo = risposta.result.find(element => element.id == idProdotto);
-}
+});
