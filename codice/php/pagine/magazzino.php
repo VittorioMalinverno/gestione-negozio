@@ -88,6 +88,10 @@ if (!isset($_SESSION['utente'])) {
                                 <input type="text" class="form-control" id="descrizione" required>
                             </div>
                             <div class="mb-3">
+                                <label for="stock" class="form-label">Stock</label>
+                                <input type="number" class="form-control" id="stock" required>
+                            </div>
+                            <div class="mb-3">
                                 <label for="prezzo" class="form-label">Prezzo (in €)</label>
                                 <input type="number" min="0" class="form-control" id="prezzo" required>
                             </div>
