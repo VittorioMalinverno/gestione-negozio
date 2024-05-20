@@ -10,7 +10,9 @@ login.onclick = async() =>{
         password: password.value
     });
     console.log(rsp);
-    if(rsp.result){     
+    if (rsp.result === "Super Admin"){
+        window.location.href = "../pagine/homeAdmin.php";
+    } else if(rsp.result){
         window.location.href = "./login.php?response="+rsp.result;
     } else {
         document.cookie = "error = Errore nella login, riprovare";

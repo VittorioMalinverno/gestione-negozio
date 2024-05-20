@@ -9,7 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $requestBody = file_get_contents('php://input');
         $request_data = json_decode($requestBody, true);
-        //$body_data = $request_data['body'] ?? null;
         $prezzo = $request_data['prezzo'] ?? null;
         $descrizione = $request_data['descrizione'] ?? null;
         $tipologia = $request_data['tipologia'] ?? null;

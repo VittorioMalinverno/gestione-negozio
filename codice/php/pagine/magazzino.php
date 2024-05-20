@@ -1,5 +1,5 @@
-<?php 
-session_start(); 
+<?php
+session_start();
 if (!isset($_SESSION['utente'])) {
     header("location: ./home.php");
 }
@@ -15,7 +15,7 @@ if (!isset($_SESSION['utente'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- titolo del progetto -->
-    <title>Admin</title>
+    <title>Magazzino</title>
 
     <!-- il mio file css -->
     <link rel="stylesheet" href="../../css/home.css">
@@ -58,58 +58,54 @@ if (!isset($_SESSION['utente'])) {
     </nav>
 
     <div class="container text-center">
-        <div class="row">
-            <div class="col mx-5 my-2">
-                <div class="card h-100">
-                    <img src="../../css/magazzino.jpg" class="card-img-top" alt="Immagine del magazzino">
-                    <div class="card-body">
-                        <h2 class="card-title">MAGAZZINO</h2>
-                        <p class="card-text">Qui vengono gestiti i prodotti:</p>
-                        <ul class="no-bullets">
-                            <li>Inserimento articolo</li>
-                            <li>Modifica articolo</li>
-                            <li>Cancella articolo</li>
-                            <li>Gestione stock</li>
-                            <li> <a href="./magazzino.php" class="btn btn-primary mt-2">Vai al magazzino</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col mx-5 my-2">
-                <div class="card h-100">
-                    <img src="../../css/ordini.jpg" class="card-img-top" alt="Immagine degli ordini">
-                    <div class="card-body">
-                        <h2 class="card-title">ORDINI</h2>
-                        <p class="card-text">Qui vengono gestiti gli ordini:</p>
-                        <ul class="no-bullets">
-                            <li>Visualizzazione ordine</li>
-                            <li>Cancellazione ordine</li>
-                            <li>Stato dell'ordine</li>
-                            <li><a href="#" class="btn btn-primary mt-4">Vai agli ordini</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col mx-5 my-2">
-                <div class="card h-100">
-                    <img src="../../css/statistiche.jpg" class="card-img-top" alt="Immagine delle statistiche">
-                    <div class="card-body">
-                        <h2 class="card-title">STATISTICHE</h2>
-                        <p class="card-text">Qui vengono visualizzate le statistiche di vendita del negozio:</p>
-                        <ul class="no-bullets">
-                            <li>Classificazione prodotti più venduti</li>
-                            <li>Classifica dei clienti con più ordini</li>
-                            <li>Classifica dei metodi di pagamento più utilizzati</li>
-                            <li><a href="#" class="btn btn-primary mt-3">Vai alle statistiche</a></li>
-                        </ul>
-                    </div>
-                </div>
+        <table id="table" class="table table-hover mt-3">
+        </table>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Inserisci prodotto
+        </button>
 
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Inserisci un nuovo prodotto</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-start">
+                        <div class="mt-3">
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tipologia" class="form-label">Tipologia</label>
+                                <input type="text" class="form-control" id="tipologia" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="descrizione" class="form-label">Descrizione</label>
+                                <input type="text" class="form-control" id="descrizione" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="prezzo" class="form-label">Prezzo (in €)</label>
+                                <input type="number" min="0" class="form-control" id="prezzo" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="immagine" class="form-label">Immagine serializzata</label>
+                                <input type="file" class="form-control" id="immagine" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="salva" type="button" class="btn btn-primary">Salva</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-
+    <script src="../../javascript/magazzino.js" type="module"></script>
     <!-- js di bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

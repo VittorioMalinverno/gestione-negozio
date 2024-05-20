@@ -23,7 +23,7 @@ export const recuperaOrdini = (email) => {
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify({email: email})
+            body: JSON.stringify({ email: email })
         })
             .then((element) => {
                 return element.json();
@@ -52,7 +52,7 @@ export const creaOrdini = (lista_ordini) => {
     });
 };
 
-export const recuperaQuantitaVenduta = ()=>{
+export const recuperaQuantitaVenduta = () => {
     return new Promise((resolve, reject) => {
         fetch("../servizi/prodottoVenduto.php", {
             method: "Post",
@@ -69,7 +69,7 @@ export const recuperaQuantitaVenduta = ()=>{
     });
 }
 
-export const login = (dizionario) =>{
+export const login = (dizionario) => {
     console.log(dizionario);
     return new Promise((resolve, reject) => {
         fetch("../servizi/login.php", {
@@ -84,11 +84,13 @@ export const login = (dizionario) =>{
             }).then((response) => {
                 resolve(response);
             })
-            .catch((error) => reject(error));
+            .catch((error) => { 
+                return reject(error); 
+            });
     });
 }
 
-export const registrati = (dizionario) =>{
+export const registrati = (dizionario) => {
     console.log(dizionario);
     return new Promise((resolve, reject) => {
         fetch("../servizi/registrati.php", {
