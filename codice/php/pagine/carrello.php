@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-// Assuming $articoli is the array of articles in the cart
-$articoli = $_SESSION["utente"]["carrello"];
-
-if (!isset($_SESSION['utente'])) {
+if (!isset($_SESSION['utente']) || !isset($_SESSION["utente"]["carrello"])) {
   header("location: ./home.php");
 }
 ?>
@@ -24,31 +21,36 @@ if (!isset($_SESSION['utente'])) {
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- script javascript -->
+  <script>
+    let carrello = <?php echo json_encode($_SESSION["utente"]["carrello"]) ?>;
+  </script>
 </head>
 
 <body>
-  <p id="carrello" style="display: none;"><?php echo $_SESSION["utente"]["carrello"] ?></p>
+<p id="mail" style="display: none;"><?php echo $_SESSION["utente"]["email"] ?></p>
 
   <!-- navbar principale -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-        <div class="container-fluid">
+    <div class="container-fluid">
 
-            <!-- tasto con titolo per tornare indietro -->
-            <a class="navbar-brand" href="./home.php">E-commerce</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+      <!-- tasto con titolo per tornare indietro -->
+      <a class="navbar-brand" href="./home.php">E-commerce</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <!-- contenuto navbar principale -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <!-- contenuto navbar principale -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                </ul>
+        </ul>
 
-                <div class="d-flex">
-                    <?php
-                    if (isset($_SESSION['loggato'])) {
-                        echo "<a href=\"./utentePriv.php\" class=\"link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5\">Ciao, " . $_SESSION['utente']['nome'] . "</a>
+        <div class="d-flex">
+          <?php
+          if (isset($_SESSION['loggato'])) {
+            echo "<a href=\"./utentePriv.php\" class=\"link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5\">Ciao, " . $_SESSION['utente']['nome'] . "</a>
             <a href=\"./carrello.php\" class=\"link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5\">
             <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"white\" class=\"bi bi-cart\" viewBox=\"0 0 16 16\">
               <path d=\"M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2\" />
@@ -60,14 +62,14 @@ if (!isset($_SESSION['utente'])) {
               <path fill-rule=\"evenodd\" d=\"M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z\" />
             </svg>logout
           </a>";
-                    } else {
-                        echo "<a href=\"./login.php\" class=\"link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5\">Ciao, accedi</a>";
-                    }
-                    ?>
-                </div>
-            </div>
+          } else {
+            echo "<a href=\"./login.php\" class=\"link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover me-5\">Ciao, accedi</a>";
+          }
+          ?>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
   <!-- navbar secondaria -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -152,17 +154,17 @@ if (!isset($_SESSION['utente'])) {
         <!-- parte finale della tabella -->
         <tfoot>
           <tr>
-            <form method="POST" action="">
+            <form id="formPagamento" method="POST"> <!-- Aggiunto id alla form -->
               <td class="hidden-xs">
               <td class="hidden-xs">
                 <select name="metodo_pagamento">
-                  <option value="carta">Mastercard</option>
-                  <option value="contanti">Visa</option>
-                  <option value="paypal">Paypal</option>
+                  <option value="Mastercard">Mastercard</option>
+                  <option value="Visa">Visa</option>
+                  <option value="Paypal">Paypal</option>
                 </select>
               </td>
               <td class="hidden-xs"><strong><?php echo "Totale: " . $totale ?></strong></td>
-              <td><a href="#"><button class="btn btn-success btn-block" type="submit"> Paga </button></a></td>
+              <td><button class="btn btn-success btn-block" type="submit"> Paga </button></td> <!-- Rimosso l'ancora intorno al bottone -->
             </form>
           </tr>
         </tfoot>

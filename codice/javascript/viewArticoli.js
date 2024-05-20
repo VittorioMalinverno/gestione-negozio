@@ -35,6 +35,8 @@ export const recuperaOrdini = (email) => {
 };
 
 export const creaOrdini = (lista_ordini) => {
+    console.log("Nella fgetch");
+    console.log(lista_ordini);
     return new Promise((resolve, reject) => {
         fetch("../servizi/creaOrdine.php", {
             method: "Post",
