@@ -30,27 +30,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if(!isset($_SESSION['utente'])){
                         $_SESSION['utente'] = $row;
                     }
-                    require("./closeConnection.php");
+                   // require("./closeConnection.php");
                     echo  json_encode(["result" => true]);
                     exit();
                 } else {
                     echo  json_encode(["result" => false]);
-                    require("./closeConnection.php");
+                   // require("./closeConnection.php");
                     exit();
                 }
             } else {
                 echo  json_encode(["result" => "L'utente non risulta registrato"]);
-                require("./closeConnection.php");
+               // require("./closeConnection.php");
                 exit();
             }
         } else {
             echo  json_encode(["result" => "Method not allowed"]);
-            require("./closeConnection.php");
+           // require("./closeConnection.php");
             exit();
         }
     } catch (Exception $e) {
         echo json_encode(["result" => ["message" => "Non è stato possibile proseguire con la registrazione", "error" => $e->getMessage()]]);
-        require("./closeConnection.php");
+       // require("./closeConnection.php");
         exit();
     }
 } else {

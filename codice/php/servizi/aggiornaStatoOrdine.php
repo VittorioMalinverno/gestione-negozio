@@ -19,16 +19,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $result[] = $row;
             }
             echo json_encode(["result" => $result]);
-            require("./closeConnection.php");
+           // require("./closeConnection.php");
             exit();
         } else {
             echo json_encode(["result" => "Non è stato selezionato l'id dell'ordine da modificare"]);
-            require("./closeConnection.php");
+           // require("./closeConnection.php");
             exit();
         }
     } catch (Exception $e) {
         echo json_encode(["result" => ["message" => "Non è stato possibile proseguire con la modifica dello stato dell'ordine", "error" => $e->getMessage()]]);
-        require("./closeConnection.php");
+       // require("./closeConnection.php");
         exit();
     }
 } else {

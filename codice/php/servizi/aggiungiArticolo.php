@@ -57,33 +57,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $queryUpdate .= $updateClause .= "WHERE nome='" . $nome . "'";
                         $conn->query($queryVerifica);
                         echo json_encode(["result" => "Articolo aggiornato con successo"]);
-                        require("./closeConnection.php");
+                       // require("./closeConnection.php");
                         exit();
                     } else {
                         echo json_encode(["result" => "Non è stato possibile fare l'update, campi non completi"]);
-                        require("./closeConnection.php");
+                       // require("./closeConnection.php");
                         exit();
                     }
                 } else {
                     $query = "INSERT INTO articolo(prezzo, descrizione, tipologia, nome, stock, immagineSerializzata) VALUES(" . $prezzo . ",'" . $descrizione . "','" . $tipologia . "','" . $nome . "'," . $stock . ",'" . $immagineSerializzata . "')";
                     $conn->query($query);
                     echo json_encode(["result" => "Articolo aggiunto con successo"]);
-                    require("./closeConnection.php");
+                   // require("./closeConnection.php");
                     exit();
                 }
             } else {
                 echo json_encode(["result" => ["message" => "Non è stato possibile proseguire con l'aggiunta dell'articolo", "error" => $error]]);
-                require("./closeConnection.php");
+               // require("./closeConnection.php");
                 exit();
             }
         } else {
             echo json_encode(["result" => "Non è stato possibile proseguire con l'aggiunta dell'articolo a causa di informazioni mancanti"]);
-            require("./closeConnection.php");
+           // require("./closeConnection.php");
             exit();
         }
     } catch (Exception $e) {
         echo json_encode(["result" => ["message" => "Non è stato possibile proseguire con l'aggiunta dell'articolo", "error" => $e->getMessage()]]);
-        require("./closeConnection.php");
+       // require("./closeConnection.php");
         exit();
     }
 } else {

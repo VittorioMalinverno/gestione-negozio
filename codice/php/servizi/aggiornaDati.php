@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $userCheckEmail = $conn->query($checkEmail);
                         if ($userCheckEmail->num_rows > 0) {
                             echo json_encode(["result" => "Esiste già un utente con questa email"]);
-                            require("./closeConnection.php");
+                           // require("./closeConnection.php");
                             exit();
                         }
                         $updateFields[] = "email = '$nuovaMail'";
@@ -66,16 +66,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['utente']['cognome'] = $cognome;
                     $_SESSION['utente']['indirizzo'] = $indirizzo;
                     echo  json_encode(["result" => "OK"]);
-                    require("./closeConnection.php");
+                   // require("./closeConnection.php");
                     exit();
                 } else {
                     echo  json_encode(["result" => "Non sono stati specificati i campi da modificare"]);
-                    require("./closeConnection.php"); 
+                   // require("./closeConnection.php"); 
                     exit();
                 }
             } else {
                 echo  json_encode(["result" => "Non è stato possibile trovare un utente, o esistono più utenti con questo indirizzo email"]);
-                require("./closeConnection.php");
+               // require("./closeConnection.php");
                 exit();
             }
         } else {
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } catch (Exception $e) {
         echo json_encode(["result" => ["message" => "Non è stato possibile proseguire con l'aggiornamento dei dati dell'utente", "error" => $e->getMessage()]]);
-        require("./closeConnection.php");
+       // require("./closeConnection.php");
         exit();
     }
 } else {

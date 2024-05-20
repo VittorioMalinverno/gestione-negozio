@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultPrimaVerifica = $conn->query($queryPrimaVerifica);
             if ($resultPrimaVerifica->num_rows > 0) {
                 echo json_encode(["result" => "Utente già registrato"]);
-                require("./closeConnection.php");
+               // require("./closeConnection.php");
                 exit();
             }
             //verifico che la mail non sia ripetuta
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultSecondaVerifica = $conn->query($queryPrimaVerifica);
             if ($resultSecondaVerifica->num_rows > 0) {
                 echo json_encode(["result" => $requestBody]);
-                require("./closeConnection.php");
+               // require("./closeConnection.php");
                 exit();
             }
             //inserisco in db il nuovo utente
@@ -39,17 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $conn->query($query);
             echo json_encode(["result" => "Ok"]);
-            require("./closeConnection.php");
+           // require("./closeConnection.php");
             exit();
         } else {
             echo  json_encode(["result" => "Body dell'http request non compilato correttamente"]);
-            require("./closeConnection.php");
+           // require("./closeConnection.php");
             exit();
         }
     } catch (Exception $e) {
         echo json_encode(["result" => ["message" => "Non è stato possibile proseguire con la registrazione", "error" => $e->getMessage()]]);
         exit();
-        require("./closeConnection.php");
+       // require("./closeConnection.php");
     }
 } else {
     echo  json_encode(["result" => "Method not allowed"]);
