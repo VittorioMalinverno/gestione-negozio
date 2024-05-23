@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['utente']) || !isset($_SESSION["utente"]["carrello"])) {
+if (!isset($_SESSION['utente'])) {
   header("location: ./home.php");
 }
 ?>
